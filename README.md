@@ -14,3 +14,4 @@ the Berlin clock version of the given time is returned as a String.
 
 Run `BerlinClockTest` to test the scenarios.
 
+[![Java CI with Maven](https://github.com/Ben-Malik/berlin-clock/actions/workflows/maven.yml/badge.svg)](https://github.com/Ben-Malik/berlin-clock/actions/workflows/maven.yml)
