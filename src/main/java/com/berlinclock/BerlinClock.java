@@ -1,7 +1,10 @@
 package com.berlinclock;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.regex.Pattern;
 
 /**
  * An implementation to the Kata Berlin Clock.
@@ -31,17 +34,14 @@ public class BerlinClock {
      */
     public String getBerlinClock(String time) {
 
-        if (time == null)
-            throw new IllegalArgumentException("The time cannot be null.");
+        if (StringUtils.isBlank(time))
+            throw new IllegalArgumentException("The time cannot be null or blank.");
 
-        if (time.isBlank())
-            throw new IllegalArgumentException("The time cannot be empty.");
-
-        if (!time.matches(TIME_REGEX))
+        if (!Pattern.compile(TIME_REGEX).matcher(time).matches())
             throw new IllegalArgumentException("Invalid time. Make sure the time is in the format: hh:mm:ss.");
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(TIME_FORMAT);
-        LocalTime localTime = LocalTime.parse(time, formatter);
+        var formatter = DateTimeFormatter.ofPattern(TIME_FORMAT);
+        var localTime = LocalTime.parse(time, formatter);
 
         int hours = localTime.getHour();
         int minutes = localTime.getMinute();

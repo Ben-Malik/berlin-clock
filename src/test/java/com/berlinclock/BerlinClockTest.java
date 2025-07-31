@@ -22,7 +22,7 @@ public class BerlinClockTest {
            berlinClock.getBerlinClock(emptyString);
         });
 
-        assertEquals("The time cannot be empty.", exception.getMessage());
+        assertEquals("The time cannot be null or blank.", exception.getMessage());
     }
 
     @Test
@@ -31,7 +31,7 @@ public class BerlinClockTest {
             berlinClock.getBerlinClock(null);
         });
 
-        assertEquals("The time cannot be null.", exception.getMessage());
+        assertEquals("The time cannot be null or blank.", exception.getMessage());
     }
 
     @Test
